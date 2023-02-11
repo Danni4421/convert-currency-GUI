@@ -19,13 +19,15 @@ public class Config {
     private static String PASSWORD = "";
     private static Connection conn;
     
-    public static void Connection() {
+    public static Connection connection() {
         try {
             conn = DriverManager.getConnection(JDBC_DB, USERNAME, PASSWORD);
             System.out.println("BERHASIL KONEKSI");
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        return conn;
     }
     
     

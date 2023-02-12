@@ -4,6 +4,8 @@
  */
 package currency.converter;
 
+import java.awt.Color;
+
 /**
  *
  * @author dani
@@ -15,6 +17,9 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
+        btnReverse.setBackground(new Color(240, 167, 50));
+        btnConvert.setBackground(new Color(53, 146, 196));
         
         setLayout(null);
         setResizable(false);
@@ -31,7 +36,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        reverseIcon = new javax.swing.JLabel();
         txtLogo = new javax.swing.JLabel();
         btnReverse = new javax.swing.JButton();
         resultTextField = new javax.swing.JTextField();
@@ -40,18 +44,30 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(63, 64, 69));
-
-        reverseIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/switch.png"))); // NOI18N
-        reverseIcon.setText("jLabel2");
+        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         txtLogo.setFont(new java.awt.Font("Segoe UI", 3, 36)); // NOI18N
+        txtLogo.setForeground(new java.awt.Color(0, 0, 0));
         txtLogo.setText("CURRENCY CONVERTER");
 
+        btnReverse.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Yellow"));
+        btnReverse.setForeground(new java.awt.Color(0, 0, 0));
         btnReverse.setText("REVERSE");
+        btnReverse.setBorder(null);
+        btnReverse.setBorderPainted(false);
+        btnReverse.setDisabledIcon(null);
 
+        resultTextField.setBackground(new java.awt.Color(255, 255, 255));
+        resultTextField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        convertedTextFiled.setBackground(new java.awt.Color(255, 255, 255));
+        convertedTextFiled.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        btnConvert.setBackground(javax.swing.UIManager.getDefaults().getColor("Actions.Blue"));
         btnConvert.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnConvert.setForeground(new java.awt.Color(0, 0, 0));
         btnConvert.setText("CONVERT");
+        btnConvert.setBorderPainted(false);
         btnConvert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConvertActionPerformed(evt);
@@ -63,25 +79,20 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(60, 60, 60)
                 .addComponent(convertedTextFiled, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(reverseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(resultTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                        .addComponent(btnReverse)
-                        .addGap(281, 281, 281)))
-                .addGap(0, 54, Short.MAX_VALUE))
+                .addComponent(btnReverse, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(resultTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 99, Short.MAX_VALUE))
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addGap(166, 166, 166)
                         .addComponent(txtLogo))
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(227, 227, 227)
+                        .addGap(237, 237, 237)
                         .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -92,14 +103,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(txtLogo)
                 .addGap(55, 55, 55)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(reverseIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resultTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(convertedTextFiled, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReverse)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                    .addComponent(convertedTextFiled, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReverse, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(btnConvert, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52))
+                .addGap(69, 69, 69))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,7 +171,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField convertedTextFiled;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextField resultTextField;
-    private javax.swing.JLabel reverseIcon;
     private javax.swing.JLabel txtLogo;
     // End of variables declaration//GEN-END:variables
 }

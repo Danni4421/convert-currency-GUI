@@ -21,6 +21,7 @@ public class Register {
             statement = Config.connection().createStatement();
             String query = "SELECT * FROM tbl_continent";
             result = statement.executeQuery(query);
+                        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -33,6 +34,7 @@ public class Register {
             statement = Config.connection().createStatement();
             String query = "SELECT * FROM tbl_country WHERE idContinent = " + idContinent;
             result = statement.executeQuery(query);
+                        
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,10 +53,10 @@ public class Register {
             String query = "INSERT INTO tbl_user VALUES (null,'"+ fullname +"', '"+ username +"', '"+ password +"', '"+ idContinent +"', '"+ 
                     idCountry +"', 'online')";
             
-            if (statement.execute(query)) {
+            if (!statement.execute(query)) {
                 condition = true;
             } 
-            
+                        
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -4,6 +4,7 @@
  */
 package currency.converter;
 
+import java.awt.Color;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
@@ -20,6 +21,8 @@ public class FrameRegister extends javax.swing.JFrame {
     
     public FrameRegister() {
         initComponents();
+        
+        btnRegister.setBackground(new Color(73, 156, 84));
         
         CountryComboBox.removeAllItems();
         
@@ -70,8 +73,10 @@ public class FrameRegister extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("HALAMAN REGISTER");
 
         panelRegister.setBackground(new java.awt.Color(255, 255, 255));
+        panelRegister.setForeground(new java.awt.Color(60, 63, 65));
 
         LabelRegister.setFont(new java.awt.Font("Hey Comic", 0, 24)); // NOI18N
         LabelRegister.setForeground(new java.awt.Color(0, 0, 0));
@@ -168,7 +173,6 @@ public class FrameRegister extends javax.swing.JFrame {
                 .addComponent(PasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRegisterLayout.createSequentialGroup()
                         .addGroup(panelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

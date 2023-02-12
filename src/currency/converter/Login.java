@@ -4,10 +4,30 @@
  */
 package currency.converter;
 
+import com.config.Config;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
+
 /**
  *
  * @author dani
  */
 public class Login {    
+    private static Connection getConnection = Config.connection();
+    private static ResultSet publicResult;
+    private static Statement statement;
     
+    public static ResultSet getUserData() {
+        try {
+            statement = Config.connection().createStatement();
+            String query = "SELECT `username`, `password` FROM tbl_user";
+            publicResult = statement.executeQuery(query);
+                        
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return publicResult;
+    }
 }
